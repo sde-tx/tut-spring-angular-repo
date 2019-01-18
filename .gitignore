@@ -10,7 +10,6 @@ bin
 /data
 .classpath
 .project
-/**/*.project
 .settings
 .springBeans
 .sts4-cache/

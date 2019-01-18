@@ -1,27 +1,146 @@
-# Client
+* https://spring.io/guides/tutorials/spring-security-and-angular-js/
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.0.0-rc.1.
+# Section: 
 
-## Development server
+- Create root folder
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+- Create folder for simple project
+Root
+ └── simple
 
-## Code scaffolding
+- Generate Spring project using  Spring Boot Initializr with Web and Security
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- Extract it under simple
+Root
+ └── simple
+		└── ui
 
-## Build
+- Add parent pom.xml under simple
+<details>
+  <summary>pom.xml under simple</summary>
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
 
-## Running unit tests
+	<groupId>org.test</groupId>
+	<artifactId>simple</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>pom</packaging>
+	<name>simple</name>
+	<description>Demo project for Spring Boot</description>
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+	<modules>
+		<module>ui</module>
+	</modules>
+</project>
+</details>
 
-## Running end-to-end tests
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+- Edit pom.xml in ui to
+	look at parent pom.xml
+	change packaging into jar
+	add build command
+	(update nodeVersion to v8.12.0)
 
-## Further help
+- Create two files under ui
+	ng:
+		#!/bin/sh
+		cd $(dirname $0)
+		PATH="$PWD/node/":$PATH
+		./node_modules/@angular/cli/bin/ng "$@"
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+	npm:
+		#!/bin/sh
+		cd $(dirname $0)
+		PATH="$PWD/node/":$PATH
+		node "node/node_modules/npm/bin/npm-cli.js" "$@"
+
+- Install angular-cli (if not installed)
+npm install @angular/cli
+
+- Check Node version used by Angular Cli and update nodeVersion above if above version is lower than this
+
+- Create Angular App under ui
+ng new client # add
+
+- Execute jobs below under ui:
+remove client/node*, client/src/favicon.ico, client/.gitignore, client/.git
+open angular.js and replace "outputPath": "dist/client" into "outputPath": "target/classes/static"
+copy all remainings in client to ui
+remove client
+
+- Execute maven commands below for multi module project under simple
+mvn -N io.takari:maven:wrapper
+mvnw clean install
+mvnw spring-boot:run
+
+
+
+
+
+- Create root folder
+
+- Create folder for simple project
+Root
+ └── simple
+
+- Generate Spring project using  Spring Boot Initializr with Web and Security
+
+- Extract it under simple
+Root
+ └── simple
+		└── ui
+
+- Add parent pom.xml under simple
+<details>
+  <summary>Click to expand!</summary>
+  
+  ## Heading
+  1. A numbered
+  2. list
+     * With some
+     * Sub bullets
+</details>
+
+- Edit pom.xml in ui to
+	look at parent pom.xml
+	change packaging into jar
+	add build command
+	(update nodeVersion to v8.12.0)
+
+- Create two files under ui
+	ng:
+		#!/bin/sh
+		cd $(dirname $0)
+		PATH="$PWD/node/":$PATH
+		./node_modules/@angular/cli/bin/ng "$@"
+
+	npm:
+		#!/bin/sh
+		cd $(dirname $0)
+		PATH="$PWD/node/":$PATH
+		node "node/node_modules/npm/bin/npm-cli.js" "$@"
+
+- Install angular-cli (if not installed)
+npm install @angular/cli
+
+- Check Node version used by Angular Cli and update nodeVersion above if above version is lower than this
+
+- Create Angular App under ui
+ng new client # add
+
+- Execute jobs below under ui:
+remove client/node*, client/src/favicon.ico, client/.gitignore, client/.git
+open angular.js and replace "outputPath": "dist/client" into "outputPath": "target/classes/static"
+copy all remainings in client to ui
+remove client
+
+- Execute maven commands below for multi module project under simple
+mvn -N io.takari:maven:wrapper
+mvnw clean install
+mvnw spring-boot:run
+
+
+
