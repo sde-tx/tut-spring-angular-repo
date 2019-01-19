@@ -1,3 +1,4 @@
-security:
-  user:
-    password: pwd1111
+spring:
+  security:
+    user:
+      password: pwd1111
