@@ -2,11 +2,10 @@
 
 # Section: A Secure Single Page Application <br>
 
-```
-Root
- 戌式式 simple
-       戌式式 ui
-```
+> Root <br>
+> &nbsp;&nbsp;&#9495; simple <br>
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#9495; ui <br>
+
 - Create folder structure like above <br>
 - Generate Spring project using Spring Boot Initializr with Web and Security <br>
 - Extract it under simple <br>
