@@ -1,0 +1,11 @@
+security:
+  user:
+    password: password
+  ignored:
+  - "*.bundle.*"
+spring:
+  session:
+    store-type: redis
+  redis:
+    host: 192.168.99.100
+    port: 6379
