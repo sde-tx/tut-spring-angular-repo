@@ -1,0 +1,29 @@
+logging:
+  level:
+    org.springframework.security: DEBUG
+security:
+  sessions: ALWAYS
+  ignored:
+  - "*.bundle.*"
+  - favicon.ico
+spring:
+  data.mongodb:
+    database: springone
+    host: localhost
+    port: 27017
+  redis:
+    host: 192.168.99.100
+    port: 6379
+  session:
+    store-type: redis
+zuul:
+  routes:
+    ui:
+      url: http://localhost:8081
+      sensitive-headers:
+    admin:
+      url: http://localhost:8082
+      sensitive-headers:
+    resource:
+      url: http://localhost:9000
+      sensitive-headers:

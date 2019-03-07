@@ -1,0 +1,15 @@
+Make Gateway to use Mongo DB instead of In-Memory part.
+
+- https://medium.com/@gtommee97/rest-authentication-with-spring-security-and-mongodb-28c06da25fb1
+
+- Install mongo db and run it
+"C:\DEV_tools\MongoDB\Server\4.0\bin\mongod.exe" --dbpath="C:\mongodb\db"
+"C:\DEV_tools\MongoDB\Server\4.0\bin\mongo"
+
+db.users.insert({
+  "username" : "admin1",
+  "password" : "$2a$10$AjHGc4x3Nez/p4ZpvFDWeO6FGxee/cVqj5KHHnHfuLnIOzC5ag4fm"
+});
+
+admin1 : welcome1
+
