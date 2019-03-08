@@ -1,10 +1,10 @@
 package demo.auth;
 
-import java.util.Arrays;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -24,11 +24,7 @@ public class MongoUserDetailsService implements UserDetailsService {
 		if (user == null)
 			throw new UsernameNotFoundException("User not found");
 		
-		List<SimpleGrantedAuthority> authorities = Arrays.asList(
-				new SimpleGrantedAuthority("ROLE_USER"),
-				new SimpleGrantedAuthority("ROLE_ADMIN"),
-				new SimpleGrantedAuthority("ROLE_READER"),
-				new SimpleGrantedAuthority("ROLE_WRITER"));
+		List<GrantedAuthority> authorities = AuthorityUtils.createAuthorityList(user.getRoles());
 		
 		return new User(user.getUsername(), user.getPassword(), authorities);
 	}
