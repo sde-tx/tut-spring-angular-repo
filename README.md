@@ -11,3 +11,7 @@ Tutorial | (basic) | single | spring-session | proxy | oauth2 | double
 Here     |         | simple | session        | proxy | oauth2 | double
 
 
+[x] Implement tutorial
+[x] Update In-Memory way into Mongo DB way for login
+[ ] Add Registration 
+
